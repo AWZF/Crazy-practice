@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+  // foreach 将其当成for循环 
+  let arr=["tony",'tom',"jenny","gogo"]
+  arr.forEach((val,index,arr)=>{
+    console.log(val,index);
+  })
+  arr.forEach(function(val,index,arr){
+    console.log(val,index);
+  })
+  // map 数据交互映射 需要返回return  返回一个新数组
+  let arr1=[
+    {name:"tony",age:10,sex:true},
+    {name:"tom",age:20,sex:false},
+    {name:"jenny",age:14,sex:true},
+    {name:"gogo",age:15,sex:true}
+  ]
+  let newarr=arr1.map((item,index,arr)=>{
+    let json={}
+    json.name2=`哈哈哈${item.name}`
+    json.age2=parseInt(item.age)+200
+    json.sex2=item.sex==true&&"男生"
+    return json
+  })
+  console.log(newarr);
+  // filter 过滤器过滤 return想要的结果
+  let filterarr=arr1.filter((item,index,arr)=>{
+    return item.age>14
+  })
+  console.log(filterarr);
+
+  // some every 遍历数组 返回true 或者是 false 给定条件
+  // reduce 减少 reduceRight
+  let arr4=[2,2,3]
+  let res=arr4.reduceRight((prev,cur,index,arr)=>{
+    return prev**cur;
+  })
+  console.log(res);
+  // for... of... 
+  let arr5=["tony","tom","jenny","gogo"]
+  for(let val of arr5){
+    console.log(val)
+  }
+  for(let index of arr5.keys()){
+    console.log(index);
+  }
+  for(let item of arr5.entries()){
+    console.log(item);
+  }
+  for(let [key,val] of arr5.entries()){
+    console.log(key,val);
+  }
+
+</script>
